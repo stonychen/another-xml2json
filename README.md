@@ -4,7 +4,7 @@
 
 another-xml2json is another JavaScript package for converting xml to json. We used another package another-xml-parser, refer to https://www.npmjs.com/package/another-xml-parser
 
-## Installation
+## Install
 
 ``` CMD
 npm install another-xml2json --save
