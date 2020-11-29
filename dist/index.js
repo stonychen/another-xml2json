@@ -13,9 +13,15 @@ function walk(xmlNode, options, transpile, isRoot) {
     if (options === void 0) { options = {}; }
     if (transpile === void 0) { transpile = undefined; }
     if (isRoot === void 0) { isRoot = false; }
-    var isArr = options && options.arrayNodes ?
-        options.arrayNodes.some(function (m) { return m.test(xmlNode.path); })
-        : false;
+    var isArr = false;
+    if (xmlNode.children.length > 1) {
+        isArr = xmlNode.children[0].name === xmlNode.children[1].name;
+    }
+    else {
+        isArr = options && options.arrayNodes ?
+            options.arrayNodes.some(function (m) { return m.test(xmlNode.path); })
+            : false;
+    }
     var val = isArr ? [] : {};
     if (xmlNode.children.length > 0) {
         xmlNode.children.map(function (child) {
