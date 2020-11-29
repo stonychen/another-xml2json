@@ -16,7 +16,7 @@
     "lint": "eslint src/**"
   },
   "dependencies": {
-    "another-xml-parser": "0.0.3"
+    "another-xml-parser": "0.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
