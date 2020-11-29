@@ -20,11 +20,15 @@ interface IOptions {
  * @param isRoot 
  */
 function walk(xmlNode: XmlNode, options: IOptions = {}, transpile: Function | undefined = undefined, isRoot = false) {
+  let isArr = false
 
-
-  let isArr = options && options.arrayNodes ?
-    (options.arrayNodes as RegExp[]).some(m => m.test(xmlNode.path))
-    : false
+  if (xmlNode.children.length > 1) {
+    isArr = xmlNode.children[0].name === xmlNode.children[1].name
+  } else {
+    isArr = options && options.arrayNodes ?
+      (options.arrayNodes as RegExp[]).some(m => m.test(xmlNode.path))
+      : false
+  }
 
   let val: any = isArr ? [] : {}
 
